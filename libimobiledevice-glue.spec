@@ -14,12 +14,8 @@ License:	LGPLv2+
 Url:		http://libimobiledevice.org/
 Source0:	http://www.libimobiledevice.org/downloads/%{name}-%{version}.tar.xz
 
-#BuildRequires:	swig
 BuildRequires:	pkgconfig(glib-2.0)
-#BuildRequires:	pkgconfig(libplist-2.0) >= 2.2.0
-#BuildRequires:	pkgconfig(libplist++-2.0) >= 2.2.0
-#BuildRequires:	pkgconfig(libtasn1)
-#BuildRequires:	pkgconfig(libusbmuxd-2.0) >= 2.0.2
+BuildRequires:	pkgconfig(libplist-2.0) >= 2.2.0
 BuildRequires:	pkgconfig(openssl)
 
 %description
