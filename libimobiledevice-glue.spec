@@ -1,18 +1,19 @@
 %define major 0
 %define api 1.0
-%define libname %mklibname imobiledevice-glue %{api} %{major}
+%define oldlibname %mklibname imobiledevice-glue %{api} %{major}
+%define libname %mklibname imobiledevice-glue
 %define devname %mklibname -d imobiledevice-glue
-%define _disable_ld_no_undefined 1
-%define	git 20211124
+#define _disable_ld_no_undefined 1
+#define	git 20211124
 
 Summary:	Library for connecting to Apple iPhone and iPod touch
 Name:		libimobiledevice-glue
-Version:	0.0.0
-Release:	1.%{git}.0
+Version:	1.0.0
+Release:	%{?git:0.%{git}.}1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://libimobiledevice.org/
-Source0:	http://www.libimobiledevice.org/downloads/%{name}-%{version}.tar.xz
+Source0:	https://github.com/libimobiledevice/libimobiledevice-glue/releases/download/%{version}/libimobiledevice-glue-%{version}.tar.bz2
 
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(libplist-2.0) >= 2.2.0
@@ -24,6 +25,7 @@ Library with common code used around the libimobiledevice project
 %package -n %{libname}
 Group:		System/Libraries
 Summary:	library with common code used around the libimobiledevice project 
+Obsoletes:	%{oldlibname} < %{EVRD}
 
 %description -n %{libname}
 Library with common code used around the libimobiledevice project 
@@ -38,13 +40,16 @@ Requires:	%{libname} = %{version}-%{release}
 Files for development with libimobiledevice-glue.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
+
+aclocal -I m4
+autoheader
+automake -a
+autoconf
+
+%configure
 
 %build
-./autogen.sh
-%configure --enable-static=no
-
 %make_build
 
 %install
