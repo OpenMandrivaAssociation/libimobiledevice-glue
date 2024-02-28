@@ -8,7 +8,7 @@
 
 Summary:	Library for connecting to Apple iPhone and iPod touch
 Name:		libimobiledevice-glue
-Version:	1.0.0
+Version:	1.1.0
 Release:	%{?git:0.%{git}.}1
 Group:		System/Libraries
 License:	LGPLv2+
