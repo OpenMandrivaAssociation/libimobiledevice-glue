@@ -12,7 +12,7 @@ Version:	1.3.0
 Release:	%{?git:0.%{git}.}1
 Group:		System/Libraries
 License:	LGPLv2+
-Url:		http://libimobiledevice.org/
+Url:		https://libimobiledevice.org/
 Source0:	https://github.com/libimobiledevice/libimobiledevice-glue/releases/download/%{version}/libimobiledevice-glue-%{version}.tar.bz2
 
 BuildRequires:	pkgconfig(glib-2.0)
