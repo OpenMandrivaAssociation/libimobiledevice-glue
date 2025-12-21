@@ -15,6 +15,11 @@ License:	LGPLv2+
 Url:		https://libimobiledevice.org/
 Source0:	https://github.com/libimobiledevice/libimobiledevice-glue/releases/download/%{version}/libimobiledevice-glue-%{version}.tar.bz2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(libplist-2.0) >= 2.2.0
 BuildRequires:	pkgconfig(openssl)
